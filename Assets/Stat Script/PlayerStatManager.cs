@@ -6,7 +6,7 @@ using System;
 public class PlayerStatManager : MonoBehaviour
 {
     [Header("Templates")]
-    [SerializeField] private StatData statData;     // SO에서 기본값을 가져옴
+    [SerializeField] private PlayerStatData statData;     // SO에서 기본값을 가져옴
 
     [Header("Runtime / Buffs")]
     [SerializeField] private BuffManager buffs = new BuffManager();
