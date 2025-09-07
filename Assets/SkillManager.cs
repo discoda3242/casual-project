@@ -17,7 +17,7 @@ public class SkillManager : MonoBehaviour
 
     private List<Skill> currentSkills = new List<Skill>();
 
-    // This is the function that resets all skills at the start.
+    // GameStateMachine이 호출하는 함수
     public void ResetSkills()
     {
         currentSkills.Clear();
@@ -36,21 +36,19 @@ public class SkillManager : MonoBehaviour
         UpdateSkillIcons();
     }
 
-    // This is the new function that gets called to replace a single skill.
+    // SkillButton이 호출하여 특정 인덱스의 스킬을 교체하는 함수
     public void ReplaceSkill(int indexToReplace)
     {
-        // Get a new skill from the list of all skills.
-        int randomIndex = Random.Range(0, allSkills.Count);
-        Skill newSkill = allSkills[randomIndex];
+        if (indexToReplace < currentSkills.Count)
+        {
+            int randomIndex = Random.Range(0, allSkills.Count);
+            Skill newSkill = allSkills[randomIndex];
 
-        // Replace the skill at the specified index.
-        currentSkills[indexToReplace] = newSkill;
-
-        // Update the UI to show the new skill.
-        currentSkillIcons[indexToReplace].sprite = newSkill.skillSprite;
+            currentSkills[indexToReplace] = newSkill;
+            currentSkillIcons[indexToReplace].sprite = newSkill.skillSprite;
+        }
     }
 
-    // This updates all the skill icons at once.
     private void UpdateSkillIcons()
     {
         for (int i = 0; i < currentSkillIcons.Count; i++)

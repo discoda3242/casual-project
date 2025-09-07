@@ -1,19 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillButton : MonoBehaviour
 {
     public int skillIndex;
+    private SkillManager skillManager;
+
+    void Start()
+    {
+        skillManager = FindObjectOfType<SkillManager>();
+    }
 
     public void OnClick()
     {
-        // GameManager에 연결된 SkillManager를 찾아서 함수 호출
-        SkillManager skillManager = FindObjectOfType<SkillManager>();
         if (skillManager != null)
         {
-            // SkillManager에게 이 버튼의 인덱스를 알려줘서 스킬을 교체
+            // SkillManager에게 스킬 교체를 요청
             skillManager.ReplaceSkill(skillIndex);
-        }
 
-        // 이제 스킬 버튼을 눌러도 상태는 SkillSelection에 머무르게 됩니다.
+            // 상태를 변경할 필요가 없으므로 GameStateMachine을 호출하지 않습니다.
+        }
     }
 }
