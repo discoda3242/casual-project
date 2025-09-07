@@ -14,4 +14,5 @@ public class ActiveBuff
         this.value = value;
         remainingTurns = turns;
     }
+
 }
