@@ -35,7 +35,7 @@ public class PlayerStatManager : MonoBehaviour
     public float GetMaxHP()
     {
         float baseVal = statData != null ? statData.baseMaxHP : 100f;
-        return Buffs.GetModifiedStat(StatType.MaxHP, baseVal);
+        return Buffs.GetModifiedStat(StatType.HP, baseVal);
     }
 
     public float GetAttack()
