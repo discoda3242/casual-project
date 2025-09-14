@@ -4,8 +4,8 @@ public class ActiveBuff
 {
     public StatType targetStat;
     public ModKind modKind;
-    public float value;          // Add¸é +2, Mult¸é +0.2(=+20%)
-    public int remainingTurns;   // ÇÊ¿ä ¾ø´Ù¸é Á¦°Å °¡´É
+    public float value;          // Addï¿½ï¿½ +2, Multï¿½ï¿½ +0.2(=+20%)
+    public int remainingTurns;   // ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public ActiveBuff(StatType stat, ModKind kind, float value, int turns = 0)
     {
