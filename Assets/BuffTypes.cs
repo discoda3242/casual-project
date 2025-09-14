@@ -1,8 +1,5 @@
 // BuffTypes.cs
-public enum StatType { MaxHP, Attack, Defense }
-public enum ModKind { Add, Mult } // Add: +x, Mult: ×(1+x)
-
-// 액티브 버프(런타임 상태)
+using UnityEngine;
 public class ActiveBuff
 {
     public StatType targetStat;
