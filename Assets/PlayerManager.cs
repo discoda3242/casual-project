@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 
 public class PlayerManager : MonoBehaviour
@@ -21,13 +21,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // ?? ÀÌ ÇÔ¼ö°¡ GameData¿¡¼­ ÄÚ½ºÆ® °ªÀ» °¡Á®¿Í ÃÊ±âÈ­ÇÕ´Ï´Ù.
+    // ?? ì´ í•¨ìˆ˜ê°€ GameDataì—ì„œ ì½”ìŠ¤íŠ¸ ê°’ì„ ê°€ì ¸ì™€ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
     public void InitializeCost()
     {
         if (GameData.Instance != null)
         {
             currentCost = GameData.Instance.diceValueFromAction1;
-            Debug.Log($"Çàµ¿1¿¡¼­ °¡Á®¿Â ÃÊ±â ÄÚ½ºÆ®: {currentCost}");
+            Debug.Log($"í–‰ë™1ì—ì„œ ê°€ì ¸ì˜¨ ì´ˆê¸° ì½”ìŠ¤íŠ¸: {currentCost}");
             UpdateCostUI();
         }
     }
@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour
     {
         currentCost += amount;
         UpdateCostUI();
-        Debug.Log($"ÄÚ½ºÆ® {amount} È¹µæ. ÇöÀç ÄÚ½ºÆ®: {currentCost}");
+        Debug.Log($"ì½”ìŠ¤íŠ¸ {amount} íšë“. í˜„ì¬ ì½”ìŠ¤íŠ¸: {currentCost}");
     }
 
     public bool HasSufficientCost(int requiredCost)
@@ -48,14 +48,14 @@ public class PlayerManager : MonoBehaviour
     {
         currentCost -= amount;
         UpdateCostUI();
-        Debug.Log($"ÄÚ½ºÆ® {amount} ¼Ò¸ğ. ³²Àº ÄÚ½ºÆ®: {currentCost}");
+        Debug.Log($"ì½”ìŠ¤íŠ¸ {amount} ì†Œëª¨. ë‚¨ì€ ì½”ìŠ¤íŠ¸: {currentCost}");
     }
 
     public void UpdateCostUI()
     {
         if (costText != null)
         {
-            // "ÄÚ½ºÆ®:"¸¦ "Cost:"·Î º¯°æ
+            // "ì½”ìŠ¤íŠ¸:"ë¥¼ "Cost:"ë¡œ ë³€ê²½
             costText.text = $"Cost: {currentCost}";
         }
     }

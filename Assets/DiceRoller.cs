@@ -1,18 +1,18 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
-using TMPro; // TextMeshPro¸¦ »ç¿ëÇÏ·Á¸é Ãß°¡ÇØ¾ß ÇÕ´Ï´Ù.
+using TMPro; // TextMeshProë¥¼ ì‚¬ìš©í•˜ë ¤ë©´ ì¶”ê°€í•´ì•¼ í•©ë‹ˆë‹¤.
 
 public class DiceRoller : MonoBehaviour
 {
-    // ÀÎ½ºÆåÅÍ¿¡ ¿¬°áÇÒ º¯¼öµé
+    // ì¸ìŠ¤í™í„°ì— ì—°ê²°í•  ë³€ìˆ˜ë“¤
     public TMP_Text diceResultText;
     public int diceSides = 6;
 
-    // ÁÖ»çÀ§ ±¼¸®±â ¾Ö´Ï¸ŞÀÌ¼Ç ½Ã°£
+    // ì£¼ì‚¬ìœ„ êµ´ë¦¬ê¸° ì• ë‹ˆë©”ì´ì…˜ ì‹œê°„
     public float rollTime = 1f;
     private bool isRolling = false;
 
-    // °ÔÀÓ¸Å´ÏÀú°¡ È£ÃâÇÏ´Â ÇÔ¼ö
+    // ê²Œì„ë§¤ë‹ˆì €ê°€ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜
     public void RollAndDisplayResult()
     {
         if (!isRolling)
@@ -26,7 +26,7 @@ public class DiceRoller : MonoBehaviour
         isRolling = true;
         float timer = 0f;
 
-        // ÁÖ»çÀ§°¡ ±¼·¯°¡´Â µíÇÑ ½Ã°¢Àû È¿°ú
+        // ì£¼ì‚¬ìœ„ê°€ êµ´ëŸ¬ê°€ëŠ” ë“¯í•œ ì‹œê°ì  íš¨ê³¼
         while (timer < rollTime)
         {
             int roll = Random.Range(1, diceSides + 1);
@@ -35,18 +35,18 @@ public class DiceRoller : MonoBehaviour
             yield return null;
         }
 
-        // ÃÖÁ¾ ÁÖ»çÀ§ °ª °áÁ¤
+        // ìµœì¢… ì£¼ì‚¬ìœ„ ê°’ ê²°ì •
         int finalRoll = Random.Range(1, diceSides + 1);
         diceResultText.text = $"Cost: {finalRoll}";
 
-        // ÃÖÁ¾ ÁÖ»çÀ§ °ªÀ» GameData¿¡ ÀúÀå
+        // ìµœì¢… ì£¼ì‚¬ìœ„ ê°’ì„ GameDataì— ì €ì¥
         if (GameData.Instance != null)
         {
             GameData.Instance.diceValueFromAction1 = finalRoll;
-            Debug.Log($"ÁÖ»çÀ§ °á°ú {finalRoll}ÀÌ(°¡) GameData¿¡ ÀúÀåµÇ¾ú½À´Ï´Ù.");
+            Debug.Log($"ì£¼ì‚¬ìœ„ ê²°ê³¼ {finalRoll}ì´(ê°€) GameDataì— ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
         }
 
-        // ÁÖ»çÀ§ ±¼¸®±â°¡ ³¡³µÀ½À» GameStateMachine¿¡ ¾Ë¸²
+        // ì£¼ì‚¬ìœ„ êµ´ë¦¬ê¸°ê°€ ëë‚¬ìŒì„ GameStateMachineì— ì•Œë¦¼
         if (GameStateMachine.Instance != null)
         {
             GameStateMachine.Instance.OnDiceRollCompleted();

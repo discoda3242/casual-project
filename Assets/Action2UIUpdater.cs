@@ -1,18 +1,18 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 
 public class Action2UIUpdater : MonoBehaviour
 {
-    // Çàµ¿2 Äµ¹ö½º¿¡ ÀÖ´Â ÄÚ½ºÆ® ÅØ½ºÆ®¸¦ ÀÎ½ºÆåÅÍ¿¡¼­ ¿¬°á
+    // í–‰ë™2 ìº”ë²„ìŠ¤ì— ìˆëŠ” ì½”ìŠ¤íŠ¸ í…ìŠ¤íŠ¸ë¥¼ ì¸ìŠ¤í™í„°ì—ì„œ ì—°ê²°
     public TMP_Text costText;
 
-    // ÀÌ ÇÔ¼ö´Â Çàµ¿2 Äµ¹ö½º°¡ È°¼ºÈ­µÉ ¶§ ÀÚµ¿À¸·Î È£ÃâµË´Ï´Ù.
+    // ì´ í•¨ìˆ˜ëŠ” í–‰ë™2 ìº”ë²„ìŠ¤ê°€ í™œì„±í™”ë  ë•Œ ìë™ìœ¼ë¡œ í˜¸ì¶œë©ë‹ˆë‹¤.
     void OnEnable()
     {
         UpdateCostUI();
     }
 
-    // PlayerManager·ÎºÎÅÍ ÄÚ½ºÆ®¸¦ °¡Á®¿Í UI¸¦ ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
+    // PlayerManagerë¡œë¶€í„° ì½”ìŠ¤íŠ¸ë¥¼ ê°€ì ¸ì™€ UIë¥¼ ì—…ë°ì´íŠ¸í•©ë‹ˆë‹¤.
     public void UpdateCostUI()
     {
         if (PlayerManager.Instance != null && costText != null)

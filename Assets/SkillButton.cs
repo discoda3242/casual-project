@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class SkillButton : MonoBehaviour
@@ -15,10 +15,10 @@ public class SkillButton : MonoBehaviour
     {
         if (skillManager != null)
         {
-            // SkillManager¿¡°Ô ½ºÅ³ ±³Ã¼¸¦ ¿äÃ»
+            // SkillManagerì—ê²Œ ìŠ¤í‚¬ êµì²´ë¥¼ ìš”ì²­
             skillManager.ReplaceSkill(skillIndex);
 
-            // »óÅÂ¸¦ º¯°æÇÒ ÇÊ¿ä°¡ ¾øÀ¸¹Ç·Î GameStateMachineÀ» È£ÃâÇÏÁö ¾Ê½À´Ï´Ù.
+            // ìƒíƒœë¥¼ ë³€ê²½í•  í•„ìš”ê°€ ì—†ìœ¼ë¯€ë¡œ GameStateMachineì„ í˜¸ì¶œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
         }
     }
 }
