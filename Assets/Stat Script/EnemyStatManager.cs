@@ -1,4 +1,4 @@
-// EnemyStatManager.cs
+﻿// EnemyStatManager.cs
 using UnityEngine;
 using System;
 
