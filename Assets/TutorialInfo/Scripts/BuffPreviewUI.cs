@@ -27,58 +27,48 @@ public class BuffPreviewUI : MonoBehaviour
         {
             GenerateMany(4);
 
-<<<<<<< Updated upstream
-        // 숫자 1~4로 표시 대상을 전환
-=======
-            ShowCombined(Text1, 1);
-            ShowCombined(Text2, 2);
-            ShowCombined(Text3, 3);
+
+
         }
-        // ?レ옄 1~4濡??쒖떆 ??곸쓣 ?꾪솚
->>>>>>> Stashed changes
-
-    }
 
 
-    string FormatBuff(ActiveBuff b)
-    {
-        if (b == null) return "";
-        string valueStr = (b.modKind == ModKind.Add)
-            ? $"+{b.value}"
-            : $"+{(b.value <= 1f ? b.value * 100f : b.value)}%";
-        return $"{b.targetStat} / {b.modKind} / {valueStr} / {b.remainingTurns}T";
-    }
-
-    // 한 줄(또는 여러 줄) 텍스트로 합쳐 반환
-    string BuildCombinedText(params int[] indices)
-    {
-        if (indices == null || indices.Length == 0)
-            indices = new int[] { 0, 1, 2, 3 }; // 기본: 전부
-
-        var parts = new List<string>();
-        foreach (var idx in indices)
+        string FormatBuff(ActiveBuff b)
         {
-            if (idx < 0 || idx >= insts.Length) continue;
-            var b = insts[idx];
-            if (b == null) continue;
-            parts.Add($"{idx + 1}) {FormatBuff(b)}");
+            if (b == null) return "";
+            string valueStr = (b.modKind == ModKind.Add)
+                ? $"+{b.value}"
+                : $"+{(b.value <= 1f ? b.value * 100f : b.value)}%";
+            return $"{b.targetStat} / {b.modKind} / {valueStr} / {b.remainingTurns}T";
         }
 
-        // 줄바꿈으로 합치기(한 줄로만 원하면 " | " 로 바꾸세요)
-        return string.Join("\n", parts);
-    }
+        // 한 줄(또는 여러 줄) 텍스트로 합쳐 반환
+        string BuildCombinedText(params int[] indices)
+        {
+            if (indices == null || indices.Length == 0)
+                indices = new int[] { 0, 1, 2, 3 }; // 기본: 전부
 
-<<<<<<< Updated upstream
-    // TMP_Text에 바로 써주는 편의 함수
-    void ShowCombined(TMP_Text label, params int[] indices)
-=======
-    // TMP_Text??諛붾줈 ?⑥＜???몄쓽 ?⑥닔
-    void ShowCombined(TMP_Text label, params int[] insts)
->>>>>>> Stashed changes
-    {
-        if (!label) return;
-        label.text = BuildCombinedText(insts);
-    }
+            var parts = new List<string>();
+            foreach (var idx in indices)
+            {
+                if (idx < 0 || idx >= insts.Length) continue;
+                var b = insts[idx];
+                if (b == null) continue;
+                parts.Add($"{idx + 1}) {FormatBuff(b)}");
+            }
+
+            // 줄바꿈으로 합치기(한 줄로만 원하면 " | " 로 바꾸세요)
+            return string.Join("\n", parts);
+        }
+
+
+        // TMP_Text에 바로 써주는 편의 함수
+        void ShowCombined(TMP_Text label, params int[] indices)
+
+
+        {
+            if (!label) return;
+            label.text = BuildCombinedText(indices);
+        } }
     private void GenerateMany(int n)
     {
         for (int i = 0; i < n && i < insts.Length; i++)
@@ -91,11 +81,7 @@ public class BuffPreviewUI : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
     // 필요하면 외부에서 inst1~4 꺼내 쓰기
     public ActiveBuff GetInst(int i) =>
         (i >= 0 && i < insts.Length) ? insts[i] : null;
 }
-=======
-}
->>>>>>> Stashed changes
