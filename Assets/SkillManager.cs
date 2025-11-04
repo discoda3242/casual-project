@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +17,7 @@ public class SkillManager : MonoBehaviour
 
     private List<Skill> currentSkills = new List<Skill>();
 
-    // GameStateMachineÀÌ È£ÃâÇÏ´Â ÇÔ¼ö
+    // GameStateMachineì´ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜
     public void ResetSkills()
     {
         currentSkills.Clear();
@@ -36,7 +36,7 @@ public class SkillManager : MonoBehaviour
         UpdateSkillIcons();
     }
 
-    // SkillButtonÀÌ È£ÃâÇÏ¿© Æ¯Á¤ ÀÎµ¦½ºÀÇ ½ºÅ³À» ±³Ã¼ÇÏ´Â ÇÔ¼ö
+    // SkillButtonì´ í˜¸ì¶œí•˜ì—¬ íŠ¹ì • ì¸ë±ìŠ¤ì˜ ìŠ¤í‚¬ì„ êµì²´í•˜ëŠ” í•¨ìˆ˜
     public void ReplaceSkill(int indexToReplace)
     {
         if (indexToReplace < currentSkills.Count)

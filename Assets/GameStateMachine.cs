@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameStateMachine : MonoBehaviour
@@ -49,7 +49,7 @@ public class GameStateMachine : MonoBehaviour
         }
     }
 
-    // ?? ÀÌ ÇÔ¼ö°¡ ÁÖ»çÀ§ ±¼¸®±â°¡ ³¡³µÀ» ¶§ È£ÃâµË´Ï´Ù.
+    // ?? ì´ í•¨ìˆ˜ê°€ ì£¼ì‚¬ìœ„ êµ´ë¦¬ê¸°ê°€ ëë‚¬ì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
     public void OnDiceRollCompleted()
     {
         ChangeState(GameState.ResultAndState);
@@ -71,11 +71,11 @@ public class GameStateMachine : MonoBehaviour
                 break;
 
             case GameState.SkillSelection:
-                Debug.Log("½ºÅ³ ¼±ÅÃ »óÅÂ: ½ºÅ³À» ±³Ã¼ÇÏ°í ÁÖ»çÀ§ ¹öÆ°À» ´©¸£¼¼¿ä.");
+                Debug.Log("ìŠ¤í‚¬ ì„ íƒ ìƒíƒœ: ìŠ¤í‚¬ì„ êµì²´í•˜ê³  ì£¼ì‚¬ìœ„ ë²„íŠ¼ì„ ëˆ„ë¥´ì„¸ìš”.");
                 break;
 
             case GameState.DiceRolling:
-                Debug.Log("ÁÖ»çÀ§ ±¼¸®±â »óÅÂ: ÁÖ»çÀ§°¡ ±¼·¯°©´Ï´Ù.");
+                Debug.Log("ì£¼ì‚¬ìœ„ êµ´ë¦¬ê¸° ìƒíƒœ: ì£¼ì‚¬ìœ„ê°€ êµ´ëŸ¬ê°‘ë‹ˆë‹¤.");
                 diceRoller.RollAndDisplayResult();
                 break;
 
@@ -87,7 +87,7 @@ public class GameStateMachine : MonoBehaviour
                 if (action1UI != null) action1UI.SetActive(false);
                 if (action2UI != null) action2UI.SetActive(true);
 
-                // ?? ¿©±â¿¡¼­ PlayerManagerÀÇ ÃÊ±âÈ­ ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+                // ?? ì—¬ê¸°ì—ì„œ PlayerManagerì˜ ì´ˆê¸°í™” í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
                 if (playerManager != null)
                 {
                     playerManager.InitializeCost();
@@ -96,14 +96,14 @@ public class GameStateMachine : MonoBehaviour
                 {
                     action2UIUpdater.UpdateCostUI();
                 }
-                Debug.Log("Çàµ¿2 È°¼ºÈ­: ½ºÅ³ ÀÌ¹ÌÁö¸¦ Å¬¸¯ÇÏ¼¼¿ä.");
+                Debug.Log("í–‰ë™2 í™œì„±í™”: ìŠ¤í‚¬ ì´ë¯¸ì§€ë¥¼ í´ë¦­í•˜ì„¸ìš”.");
                 break;
         }
     }
 
     private void EndAction1AndStartAction2()
     {
-        Debug.Log("Çàµ¿1 Á¾·á. Çàµ¿2 Äµ¹ö½º·Î ÀüÈ¯ÇÕ´Ï´Ù.");
+        Debug.Log("í–‰ë™1 ì¢…ë£Œ. í–‰ë™2 ìº”ë²„ìŠ¤ë¡œ ì „í™˜í•©ë‹ˆë‹¤.");
         ChangeState(GameState.Action2_Active);
     }
 }

@@ -1,10 +1,10 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GameData : MonoBehaviour
 {
     public static GameData Instance;
 
-    public int diceValueFromAction1; // Çàµ¿1¿¡¼­ ÀúÀåÇÒ ÁÖ»çÀ§ °ª
+    public int diceValueFromAction1; // í–‰ë™1ì—ì„œ ì €ì¥í•  ì£¼ì‚¬ìœ„ ê°’
 
     private void Awake()
     {
