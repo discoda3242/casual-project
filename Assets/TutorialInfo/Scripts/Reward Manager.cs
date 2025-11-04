@@ -1,33 +1,33 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public enum StatType { Attack, Defense, Speed, HP }
-public enum ModKind { Add, Mult }  // Add: °íÁ¤ ¼öÄ¡, Mult: ºñÀ²
+public enum ModKind { Add, Mult }  // Add: ê³ ì • ìˆ˜ì¹˜, Mult: ë¹„ìœ¨
 
 [CreateAssetMenu(fileName = "New Buff", menuName = "Game/Buff Data")]
 public class BuffData : ScriptableObject
 {
-    [Header("±âº» Á¤º¸")]
-    public int id;                // ¹öÇÁ °íÀ¯ ID
-    public string buffName;       // ¹öÇÁ ÀÌ¸§ (UI Ç¥½Ã¿ë)
-    public string description;    // ¼³¸í (ÅøÆÁ µî)
+    [Header("ê¸°ë³¸ ì •ë³´")]
+    public int id;                // ë²„í”„ ê³ ìœ  ID
+    public string buffName;       // ë²„í”„ ì´ë¦„ (UI í‘œì‹œìš©)
+    public string description;    // ì„¤ëª… (íˆ´íŒ ë“±)
 
-    [Header("È¿°ú ´ë»ó")]
-    public StatType targetStat;   // ¾î¶² ½ºÅÈ¿¡ Àû¿ëµÇ´ÂÁö
-    public ModKind modKind;       // °íÁ¤ Ãß°¡ÀÎÁö, ¹èÀ² °ö¿¬»êÀÎÁö
+    [Header("íš¨ê³¼ ëŒ€ìƒ")]
+    public StatType targetStat;   // ì–´ë–¤ ìŠ¤íƒ¯ì— ì ìš©ë˜ëŠ”ì§€
+    public ModKind modKind;       // ê³ ì • ì¶”ê°€ì¸ì§€, ë°°ìœ¨ ê³±ì—°ì‚°ì¸ì§€
 
-    [Header("È¿°ú ¹üÀ§")]
-    public int minDuration;       // Áö¼ÓÅÏ ÃÖ¼Ò°ª
-    public int maxDuration;       // Áö¼ÓÅÏ ÃÖ´ë°ª
-    public int minEffect;         // È¿°ú ÃÖ¼Ò°ª
-    public int maxEffect;         // È¿°ú ÃÖ´ë°ª
+    [Header("íš¨ê³¼ ë²”ìœ„")]
+    public int minDuration;       // ì§€ì†í„´ ìµœì†Œê°’
+    public int maxDuration;       // ì§€ì†í„´ ìµœëŒ€ê°’
+    public int minEffect;         // íš¨ê³¼ ìµœì†Œê°’
+    public int maxEffect;         // íš¨ê³¼ ìµœëŒ€ê°’
 
-    [Header("¿¬Ãâ")]
-    public Sprite icon;           // ¾ÆÀÌÄÜ ÀÌ¹ÌÁö
-    public Color buffColor;       // UI °­Á¶»ö (¼±ÅÃ»çÇ×)
+    [Header("ì—°ì¶œ")]
+    public Sprite icon;           // ì•„ì´ì½˜ ì´ë¯¸ì§€
+    public Color buffColor;       // UI ê°•ì¡°ìƒ‰ (ì„ íƒì‚¬í•­)
 
-    // ½ÇÁ¦ Àû¿ëÇÒ ¶§ ·£´ı ±¼·Á¼­ ActiveBuff ¹İÈ¯
+    // ì‹¤ì œ ì ìš©í•  ë•Œ ëœë¤ êµ´ë ¤ì„œ ActiveBuff ë°˜í™˜
     public ActiveBuff CreateInstance()
     {
         int duration = Random.Range(minDuration, maxDuration + 1);

@@ -1,4 +1,8 @@
+ï»¿<<<<<<< Updated upstream
 using System.Collections.Generic;
+=======
+ç™¤í“sing System.Collections.Generic;
+>>>>>>> Stashed changes
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -7,20 +11,37 @@ using TMPro;
 public class BuildCombinedText : MonoBehaviour
 {
     [Header("BuffData")]
-    [SerializeField] private BuffData source;          // °øÅë ÅÛÇÃ¸´
-    [SerializeField] private BuffData[] sources;       // ½½·Ôº° ÅÛÇÃ¸´(¼±ÅÃ)
+<<<<<<< Updated upstream
+    [SerializeField] private BuffData source;          // ê³µí†µ í…œí”Œë¦¿
+    [SerializeField] private BuffData[] sources;       // ìŠ¬ë¡¯ë³„ í…œí”Œë¦¿(ì„ íƒ)
 
     [Header("Spawn Settings")]
-    [SerializeField] private TextMeshProUGUI textPrefab;   // ¸¸µé ÅØ½ºÆ® ÇÁ¸®ÆÕ(TMP_Text)
-    [SerializeField] private RectTransform spawnParent;    // »ı¼ºµÉ ºÎ¸ğ(ÆĞ³Î/Äµ¹ö½º ¹Ø)
-    [SerializeField] private int spawnCount = 3;           // »ı¼ºÇÒ ÅØ½ºÆ® °³¼ö(3°³)
-    [SerializeField] private bool startHidden = true;   // ½ÃÀÛ ½Ã ¼û±â±â
+    [SerializeField] private TextMeshProUGUI textPrefab;   // ë§Œë“¤ í…ìŠ¤íŠ¸ í”„ë¦¬íŒ¹(TMP_Text)
+    [SerializeField] private RectTransform spawnParent;    // ìƒì„±ë  ë¶€ëª¨(íŒ¨ë„/ìº”ë²„ìŠ¤ ë°‘)
+    [SerializeField] private int spawnCount = 3;           // ìƒì„±í•  í…ìŠ¤íŠ¸ ê°œìˆ˜(3ê°œ)
+    [SerializeField] private bool startHidden = true;   // ì‹œì‘ ì‹œ ìˆ¨ê¸°ê¸°
 
     [Header("When a text is clicked (optional)")]
-    public UnityEvent<string> onSkillChosen;               // Å¬¸¯½Ã ½ºÅ³ ¹®ÀÚ¿­ Äİ¹é
+    public UnityEvent<string> onSkillChosen;               // í´ë¦­ì‹œ ìŠ¤í‚¬ ë¬¸ìì—´ ì½œë°±
 
-    private ActiveBuff[] insts = new ActiveBuff[4];        // inst1~4 ÀúÀå
-    private readonly List<GameObject> spawned = new();     // »ı¼ºÇØµĞ ÅØ½ºÆ®µé
+    private ActiveBuff[] insts = new ActiveBuff[4];        // inst1~4 ì €ì¥
+    private readonly List<GameObject> spawned = new();     // ìƒì„±í•´ë‘” í…ìŠ¤íŠ¸ë“¤
+=======
+    [SerializeField] private BuffData source;          // æ€¨ë“¯ë„» ?ì’—ëµ†ç”±?
+    [SerializeField] private BuffData[] sources;       // ?Ñ‰â€™è¹‚??ì’—ëµ†ç”±??ì¢ê¹®)
+
+    [Header("Spawn Settings")]
+    [SerializeField] private TextMeshProUGUI textPrefab;   // ï§ëš®ë±¾ ?ë¿ë’ª???ê¾¨â”??TMP_Text)
+    [SerializeField] private RectTransform spawnParent;    // ?ì•¹ê½¦??éºÂ€ï§??â‘¤ê¼¸/ï§¦ë¶¾ì¾­??è«›?
+    [SerializeField] private int spawnCount = 3;           // ?ì•¹ê½¦???ë¿ë’ª??åª›ì’–ë‹”(3åª›?
+    [SerializeField] private bool startHidden = true;   // ?ì’–ì˜‰ ???â‘£ë¦°æ¹²?
+
+    [Header("When a text is clicked (optional)")]
+    public UnityEvent<string> onSkillChosen;               // ?ëŒ€â”ƒ???ã…½ê¶— è‡¾ëª„ì˜„??è‚„ì’•ê°š
+
+    private ActiveBuff[] insts = new ActiveBuff[4];        // inst1~4 ?Â€??
+    private readonly List<GameObject> spawned = new();     // ?ì•¹ê½¦?ëŒ€ëª¦ ?ë¿ë’ª?ëªƒë±¾
+>>>>>>> Stashed changes
 
     void Start()
     {
@@ -31,21 +52,38 @@ public class BuildCombinedText : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GenerateMany(Mathf.Max(spawnCount, 1)); // insts Ã¤¿ì±â
-            SpawnTexts();                             // ÅØ½ºÆ® »ı¼º & ³»¿ë Ã¤¿ì±â
+<<<<<<< Updated upstream
+            GenerateMany(Mathf.Max(spawnCount, 1)); // insts ì±„ìš°ê¸°
+            SpawnTexts();                             // í…ìŠ¤íŠ¸ ìƒì„± & ë‚´ìš© ì±„ìš°ê¸°
         }
     }
 
-    // --- ÅØ½ºÆ®µé µ¿Àû »ı¼º ---
+    // --- í…ìŠ¤íŠ¸ë“¤ ë™ì  ìƒì„± ---
+=======
+            GenerateMany(Mathf.Max(spawnCount, 1)); // insts ï§¢ê¾©ìŠ¦æ¹²?
+            SpawnTexts();                             // ?ë¿ë’ª???ì•¹ê½¦ & ?ëŒìŠœ ï§¢ê¾©ìŠ¦æ¹²?
+        }
+    }
+
+    // --- ?ë¿ë’ª?ëªƒë±¾ ?ìˆˆìŸ» ?ì•¹ê½¦ ---
+>>>>>>> Stashed changes
     void SpawnTexts()
     {
         if (!textPrefab || !spawnParent)
         {
-            Debug.LogWarning("BuffPreviewUI: textPrefab ¶Ç´Â spawnParent°¡ ºñ¾ú½À´Ï´Ù.");
+<<<<<<< Updated upstream
+            Debug.LogWarning("BuffPreviewUI: textPrefab ë˜ëŠ” spawnParentê°€ ë¹„ì—ˆìŠµë‹ˆë‹¤.");
             return;
         }
 
-        // ÀÌÀü¿¡ ¶ç¿î °Íµé Á¤¸®
+        // ì´ì „ì— ë„ìš´ ê²ƒë“¤ ì •ë¦¬
+=======
+            Debug.LogWarning("BuffPreviewUI: textPrefab ?ë¨®ë’— spawnParentåª›Â€ é®ê¾©ë¿€?ë“¬ë•²??");
+            return;
+        }
+
+        // ?ëŒìŸ¾???ê¾©ìŠ« å¯ƒê»Šë±¾ ?ëº£â”
+>>>>>>> Stashed changes
         foreach (var go in spawned) if (go) Destroy(go);
         spawned.Clear();
 
@@ -53,12 +91,21 @@ public class BuildCombinedText : MonoBehaviour
 
         for (int i = 0; i < spawnCount; i++)
         {
-            int idx = i; // insts[idx]¸¦ Ç¥½Ã
+<<<<<<< Updated upstream
+            int idx = i; // insts[idx]ë¥¼ í‘œì‹œ
             var t = Instantiate(textPrefab, spawnParent);
-            t.raycastTarget = true;                   // Å¬¸¯ ¹Ş±â
-            t.text = GetCombinedText(idx);         // ÇÑ ÁÙ ³»¿ë
+            t.raycastTarget = true;                   // í´ë¦­ ë°›ê¸°
+            t.text = GetCombinedText(idx);         // í•œ ì¤„ ë‚´ìš©
 
-            // Å¬¸¯ ÇÚµé·¯ ºÙÀÌ±â
+            // í´ë¦­ í•¸ë“¤ëŸ¬ ë¶™ì´ê¸°
+=======
+            int idx = i; // insts[idx]ç‘œ??ì’–ë–†
+            var t = Instantiate(textPrefab, spawnParent);
+            t.raycastTarget = true;                   // ?ëŒ€â”ƒ è«›ì„ë¦°
+            t.text = GetCombinedText(idx);         // ??ä»¥??ëŒìŠœ
+
+            // ?ëŒ€â”ƒ ?ëªƒë±¾??éºìˆˆì” æ¹²?
+>>>>>>> Stashed changes
             var item = t.gameObject.AddComponent<BuffTextItem>();
             item.Init(this, idx);
 
@@ -66,16 +113,28 @@ public class BuildCombinedText : MonoBehaviour
         }
     }
 
-    // --- ÅØ½ºÆ® Å¬¸¯ ½Ã: Á¤º¸ ¹İÈ¯ + ÅØ½ºÆ® Á¦°Å ---
+<<<<<<< Updated upstream
+    // --- í…ìŠ¤íŠ¸ í´ë¦­ ì‹œ: ì •ë³´ ë°˜í™˜ + í…ìŠ¤íŠ¸ ì œê±° ---
     public void OnItemClicked(GameObject item, int index)
     {
-        string info = GetCombinedText(index); // "Stat / Kind / +°ª / nT"
-        onSkillChosen?.Invoke(info);            // ÇÊ¿äÇÏ¸é ÀÎ½ºÆåÅÍ¿¡¼­ ÀÌº¥Æ®·Î ¹Ş±â
+        string info = GetCombinedText(index); // "Stat / Kind / +ê°’ / nT"
+        onSkillChosen?.Invoke(info);            // í•„ìš”í•˜ë©´ ì¸ìŠ¤í™í„°ì—ì„œ ì´ë²¤íŠ¸ë¡œ ë°›ê¸°
+=======
+    // --- ?ë¿ë’ª???ëŒ€â”ƒ ?? ?ëº£ë‚« è«›ì„‘ì†š + ?ë¿ë’ª???ì’“êµ… ---
+    public void OnItemClicked(GameObject item, int index)
+    {
+        string info = GetCombinedText(index); // "Stat / Kind / +åª›?/ nT"
+        onSkillChosen?.Invoke(info);            // ?ê¾©ìŠ‚?ì„ãˆƒ ?ëª„ë’ª?ìˆ‰ê½£?ë¨¯ê½Œ ?ëŒ€ê¹½?ëªƒì¤ˆ è«›ì„ë¦°
+>>>>>>> Stashed changes
         Debug.Log($"[Selected] {info}");
         if (item) Destroy(item);
     }
 
-    // ====== ¾Æ·¡ ¼¼ ÇÔ¼ö´Â ±âÁ¸ ·ÎÁ÷ ±×´ë·Î »ç¿ë ======
+<<<<<<< Updated upstream
+    // ====== ì•„ë˜ ì„¸ í•¨ìˆ˜ëŠ” ê¸°ì¡´ ë¡œì§ ê·¸ëŒ€ë¡œ ì‚¬ìš© ======
+=======
+    // ====== ?ê¾¨ì˜’ ???â‘¥ë‹”??æ¹²ê³—ã€ˆ æ¿¡ì’–ì­… æ´¹ëªƒ?æ¿¡??ÑŠìŠœ ======
+>>>>>>> Stashed changes
     string FormatBuff(ActiveBuff b)
     {
         if (b == null) return "";
@@ -88,7 +147,11 @@ public class BuildCombinedText : MonoBehaviour
     string GetCombinedText(params int[] indices)
     {
         if (indices == null || indices.Length == 0)
-            indices = new int[] { 0, 1, 2, 3 }; // ±âº»: ÀüºÎ
+<<<<<<< Updated upstream
+            indices = new int[] { 0, 1, 2, 3 }; // ê¸°ë³¸: ì „ë¶€
+=======
+            indices = new int[] { 0, 1, 2, 3 }; // æ¹²ê³•ë‚¯: ?ê¾¨?
+>>>>>>> Stashed changes
 
         var parts = new List<string>();
         foreach (var idx in indices)
