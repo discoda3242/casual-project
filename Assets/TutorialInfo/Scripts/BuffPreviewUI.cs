@@ -1,37 +1,41 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class BuffPreviewUI : MonoBehaviour
 {
-    [Header("°øÅë BuffData (¾Æ·¡ sources°¡ ºñ¾îÀÖÀ¸¸é ÀÌ°É·Î 4°³ »ı¼º)")]
+    [Header("ê³µí†µ BuffData (ì•„ë˜ sourcesê°€ ë¹„ì–´ìˆìœ¼ë©´ ì´ê±¸ë¡œ 4ê°œ ìƒì„±)")]
     [SerializeField] private BuffData source;
 
-    [Header("½½·Ôº° BuffData (¼±ÅÃ, Å©±â 4·Î µÎ°í °¢ÀÚ ´Ù¸¥ ÅÛÇÃ¸´ ¾²°í ½ÍÀ» ¶§)")]
-    [SerializeField] private BuffData[] sources; // ºñ¿öµÎ¸é source »ç¿ë
+    [Header("ìŠ¬ë¡¯ë³„ BuffData (ì„ íƒ, í¬ê¸° 4ë¡œ ë‘ê³  ê°ì ë‹¤ë¥¸ í…œí”Œë¦¿ ì“°ê³  ì‹¶ì„ ë•Œ)")]
+    [SerializeField] private BuffData[] sources; // ë¹„ì›Œë‘ë©´ source ì‚¬ìš©
 
-    [Header("Ãâ·Â TMP ÅØ½ºÆ®µé")]
+    [Header("ì¶œë ¥ TMP í…ìŠ¤íŠ¸ë“¤")]
     [SerializeField] private TMP_Text Text1;
     [SerializeField] private TMP_Text Text2;
     [SerializeField] private TMP_Text Text3;
     [SerializeField] private TMP_Text Text4;
 
-    // inst1~inst4¸¦ ´ã¾ÆµÑ °÷
+    // inst1~inst4ë¥¼ ë‹´ì•„ë‘˜ ê³³
     private ActiveBuff[] insts = new ActiveBuff[4];
-    private int current = 0; // Áö±İ È­¸é¿¡ º¸¿©ÁÙ ÀÎµ¦½º(0~3)
+    private int current = 0; // ì§€ê¸ˆ í™”ë©´ì— ë³´ì—¬ì¤„ ì¸ë±ìŠ¤(0~3)
 
     private void Update()
     {
-        // ½ºÆäÀÌ½º: inst1~4 ÀüºÎ »õ·Î ±¼¸®°í, current(±âº» 0¹ø) º¸¿©ÁÖ±â
+        // ìŠ¤í˜ì´ìŠ¤: inst1~4 ì „ë¶€ ìƒˆë¡œ êµ´ë¦¬ê³ , current(ê¸°ë³¸ 0ë²ˆ) ë³´ì—¬ì£¼ê¸°
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GenerateMany(4);
-        }
-        ShowCombined(Text1, 1);
-        ShowCombined(Text2, 2);
-        ShowCombined(Text3, 3);
 
-        // ¼ıÀÚ 1~4·Î Ç¥½Ã ´ë»óÀ» ÀüÈ¯
+<<<<<<< Updated upstream
+        // ìˆ«ì 1~4ë¡œ í‘œì‹œ ëŒ€ìƒì„ ì „í™˜
+=======
+            ShowCombined(Text1, 1);
+            ShowCombined(Text2, 2);
+            ShowCombined(Text3, 3);
+        }
+        // ?ãƒ¬ì˜„ 1~4æ¿¡??ì’–ë–† ?Â€?ê³¸ì“£ ?ê¾ªì†š
+>>>>>>> Stashed changes
 
     }
 
@@ -45,11 +49,11 @@ public class BuffPreviewUI : MonoBehaviour
         return $"{b.targetStat} / {b.modKind} / {valueStr} / {b.remainingTurns}T";
     }
 
-    // ÇÑ ÁÙ(¶Ç´Â ¿©·¯ ÁÙ) ÅØ½ºÆ®·Î ÇÕÃÄ ¹İÈ¯
+    // í•œ ì¤„(ë˜ëŠ” ì—¬ëŸ¬ ì¤„) í…ìŠ¤íŠ¸ë¡œ í•©ì³ ë°˜í™˜
     string BuildCombinedText(params int[] indices)
     {
         if (indices == null || indices.Length == 0)
-            indices = new int[] { 0, 1, 2, 3 }; // ±âº»: ÀüºÎ
+            indices = new int[] { 0, 1, 2, 3 }; // ê¸°ë³¸: ì „ë¶€
 
         var parts = new List<string>();
         foreach (var idx in indices)
@@ -60,15 +64,20 @@ public class BuffPreviewUI : MonoBehaviour
             parts.Add($"{idx + 1}) {FormatBuff(b)}");
         }
 
-        // ÁÙ¹Ù²ŞÀ¸·Î ÇÕÄ¡±â(ÇÑ ÁÙ·Î¸¸ ¿øÇÏ¸é " | " ·Î ¹Ù²Ù¼¼¿ä)
+        // ì¤„ë°”ê¿ˆìœ¼ë¡œ í•©ì¹˜ê¸°(í•œ ì¤„ë¡œë§Œ ì›í•˜ë©´ " | " ë¡œ ë°”ê¾¸ì„¸ìš”)
         return string.Join("\n", parts);
     }
 
-    // TMP_Text¿¡ ¹Ù·Î ½áÁÖ´Â ÆíÀÇ ÇÔ¼ö
+<<<<<<< Updated upstream
+    // TMP_Textì— ë°”ë¡œ ì¨ì£¼ëŠ” í¸ì˜ í•¨ìˆ˜
     void ShowCombined(TMP_Text label, params int[] indices)
+=======
+    // TMP_Text??è«›ë¶¾ì¤ˆ ?â‘¥ï¼œ???ëª„ì“½ ?â‘¥ë‹”
+    void ShowCombined(TMP_Text label, params int[] insts)
+>>>>>>> Stashed changes
     {
         if (!label) return;
-        label.text = BuildCombinedText(indices);
+        label.text = BuildCombinedText(insts);
     }
     private void GenerateMany(int n)
     {
@@ -82,7 +91,11 @@ public class BuffPreviewUI : MonoBehaviour
         }
     }
 
-    // ÇÊ¿äÇÏ¸é ¿ÜºÎ¿¡¼­ inst1~4 ²¨³» ¾²±â
+<<<<<<< Updated upstream
+    // í•„ìš”í•˜ë©´ ì™¸ë¶€ì—ì„œ inst1~4 êº¼ë‚´ ì“°ê¸°
     public ActiveBuff GetInst(int i) =>
         (i >= 0 && i < insts.Length) ? insts[i] : null;
 }
+=======
+}
+>>>>>>> Stashed changes
