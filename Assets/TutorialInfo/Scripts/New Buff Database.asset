@@ -9,17 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 940b9527bc22c854883854506303d70b, type: 3}
-  m_Name: BuffData
+  m_Script: {fileID: 11500000, guid: 411f6fcc98839e14bbbac9bf02790660, type: 3}
+  m_Name: New Buff Database
   m_EditorClassIdentifier: 
-  id: 0
-  buffName: 
-  description: 
-  targetStat: 0
-  modKind: 0
-  minDuration: 0
-  maxDuration: 0
-  minEffect: 0
-  maxEffect: 0
-  icon: {fileID: 0}
-  buffColor: {r: 0, g: 0, b: 0, a: 0}
+  buffs: []
