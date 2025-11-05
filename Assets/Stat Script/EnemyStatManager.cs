@@ -1,4 +1,4 @@
-// // EnemyStatManager.cs
+﻿// // EnemyStatManager.cs
 // using UnityEngine;
 // using System;
 
@@ -111,7 +111,7 @@ public class EnemyStatManager : MonoBehaviour
     [SerializeField] private EnemyStatData enemyStatData;
 
     public float CurrentHP { get; private set; }
-    public float CurrentStage { get; private set; }
+    public int CurrentStage { get; private set; }
 
     public event Action<float, float> OnHealthChanged; // (현재HP, 최대HP)
     public event Action OnDied;
@@ -128,11 +128,12 @@ public class EnemyStatManager : MonoBehaviour
         {
             Debug.LogWarning("[EnemyStatManager] StatData가 비어있습니다.");
 
-        CurrentStage = 0;                          // 0부터 시작
-        CurrentHP = GetMaxHP(CurrentStage);        // 시작 HP
-        NotifyHPChanged();
+            CurrentStage = 0;                          // 0부터 시작
+            CurrentHP = GetMaxHP(CurrentStage);        // 시작 HP
+            NotifyHPChanged();
 
-        OnDied += Die;                             // 사망 이벤트 연결
+            OnDied += Die;
+        }// 사망 이벤트 연결
     }
 
     // ===== 스탯 조회 =====
