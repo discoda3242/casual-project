@@ -5,7 +5,11 @@ public class GameStateMachine : MonoBehaviour
 {
     public static GameStateMachine Instance;
     public DiceRoller diceRoller;
-    public SkillManager skillManager;
+
+    // ⛔ 기존: public SkillManager skillManager;
+    // ✅ 교체:
+    public DeckManager deckManager;
+
     public PlayerManager playerManager;
     public Action2UIUpdater action2UIUpdater;
 
@@ -25,15 +29,8 @@ public class GameStateMachine : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
+        else Destroy(gameObject);
     }
 
     void Start()
@@ -41,15 +38,15 @@ public class GameStateMachine : MonoBehaviour
         ChangeState(GameState.SkillReset);
     }
 
+    // (선택) 버튼에서 상태 분기하고 싶으면 사용
+    public GameState GetState() => currentState;
+
     public void OnDiceButtonPushed()
     {
         if (currentState == GameState.SkillSelection)
-        {
             ChangeState(GameState.DiceRolling);
-        }
     }
 
-    // ?? 이 함수가 주사위 굴리기가 끝났을 때 호출됩니다.
     public void OnDiceRollCompleted()
     {
         ChangeState(GameState.ResultAndState);
@@ -58,24 +55,25 @@ public class GameStateMachine : MonoBehaviour
     public void ChangeState(GameState newState)
     {
         currentState = newState;
+
         switch (currentState)
         {
             case GameState.SkillReset:
-                if (skillManager != null)
-                {
-                    skillManager.ResetSkills();
-                }
+                // ⛔ 기존: if (skillManager != null) skillManager.ResetSkills();
+                // ✅ 교체:
+              
+                   
+
                 if (action1UI != null) action1UI.SetActive(true);
                 if (action2UI != null) action2UI.SetActive(false);
                 ChangeState(GameState.SkillSelection);
                 break;
 
             case GameState.SkillSelection:
-                Debug.Log("스킬 선택 상태: 스킬을 교체하고 주사위 버튼을 누르세요.");
+                Debug.Log("스킬 선택 상태: 덱에 카드 추가/교체 후 주사위 버튼을 누르세요.");
                 break;
 
             case GameState.DiceRolling:
-                Debug.Log("주사위 굴리기 상태: 주사위가 굴러갑니다.");
                 diceRoller.RollAndDisplayResult();
                 break;
 
@@ -87,23 +85,16 @@ public class GameStateMachine : MonoBehaviour
                 if (action1UI != null) action1UI.SetActive(false);
                 if (action2UI != null) action2UI.SetActive(true);
 
-                // ?? 여기에서 PlayerManager의 초기화 함수를 호출합니다.
-                if (playerManager != null)
-                {
-                    playerManager.InitializeCost();
-                }
-                if (action2UIUpdater != null)
-                {
-                    action2UIUpdater.UpdateCostUI();
-                }
-                Debug.Log("행동2 활성화: 스킬 이미지를 클릭하세요.");
+                if (playerManager != null) playerManager.InitializeCost();
+                if (action2UIUpdater != null) action2UIUpdater.UpdateCostUI();
+                Debug.Log("행동2 활성화: 스킬(카드) 사용 단계.");
                 break;
         }
     }
 
     private void EndAction1AndStartAction2()
     {
-        Debug.Log("행동1 종료. 행동2 캔버스로 전환합니다.");
+        Debug.Log("행동1 종료. 행동2로 전환.");
         ChangeState(GameState.Action2_Active);
     }
 }
