@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 411f6fcc98839e14bbbac9bf02790660, type: 3}
-  m_Name: BuffData
+  m_Name: defenseUp
   m_EditorClassIdentifier: 
-  id: 0
-  buffName: 
-  description: 
-  targetStat: 0
+  id: 1
+  buffName: defenseUp
+  description: "\uBC29\uC5B4\uB825 \uC99D\uAC00"
+  targetStat: 1
   modKind: 0
-  minDuration: 0
-  maxDuration: 0
-  minEffect: 0
-  maxEffect: 0
-  icon: {fileID: 0}
+  minDuration: 1
+  maxDuration: 10
+  minEffect: 1
+  maxEffect: 100
+  icon: {fileID: 21300000, guid: 8877453e02d83e949a6d95f4133350a8, type: 3}
   buffColor: {r: 0, g: 0, b: 0, a: 0}

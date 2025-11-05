@@ -32,7 +32,10 @@ public class BuffData : ScriptableObject
     {
         int duration = Random.Range(minDuration, maxDuration + 1);
         int effectValue = Random.Range(minEffect, maxEffect + 1);
+       // var vals = (StatType[])System.Enum.GetValues(typeof(StatType));
+        //targetStat = vals[UnityEngine.Random.Range(0, vals.Length)];
+        //modKind = ModKind.Add;
 
-        return new ActiveBuff(targetStat, modKind, effectValue, duration);
+        return new ActiveBuff(targetStat, modKind, effectValue, duration, icon);
     }
 }

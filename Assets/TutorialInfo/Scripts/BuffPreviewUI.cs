@@ -26,8 +26,9 @@ public class BuffPreviewUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GenerateMany(4);
-
-
+            ShowCombined(Text1, 1);
+            ShowCombined(Text2, 2);
+            ShowCombined(Text3, 3);
 
         }
 
