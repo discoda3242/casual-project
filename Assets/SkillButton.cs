@@ -4,21 +4,25 @@ using UnityEngine.UI;
 public class SkillButton : MonoBehaviour
 {
     public int skillIndex;
-    private SkillManager skillManager;
+    public BuffData buffData;
 
     void Start()
     {
-        skillManager = FindObjectOfType<SkillManager>();
     }
 
     public void OnClick()
     {
-        if (skillManager != null)
+        ActiveBuff data = buffData.CreateInstance(); // 인스턴스 메서드로 호출
+        DeckManager deckManager = FindObjectOfType<DeckManager>();
+        if (deckManager != null)
         {
-            // SkillManager에게 스킬 교체를 요청
-            skillManager.ReplaceSkill(skillIndex);
-
-            // 상태를 변경할 필요가 없으므로 GameStateMachine을 호출하지 않습니다.
+            deckManager.AddCardToDeck(data);
         }
+        else
+        {
+            Debug.LogError("DeckManager 인스턴스를 찾을 수 없습니다.");
+        }
+
+
     }
 }
