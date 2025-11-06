@@ -17,11 +17,14 @@ MonoBehaviour:
     maxHP: 30
     attack: 5
     defense: 1
+    icon: {fileID: 21300000, guid: c44631207d498af4493caed8fcb3bf20, type: 3}
   - name: Orc
     maxHP: 120
     attack: 20
     defense: 10
+    icon: {fileID: 21300000, guid: 6c8dfdbfcb0a2074dabc7e34412e2696, type: 3}
   - name: Dragon
     maxHP: 1000
     attack: 100
     defense: 50
+    icon: {fileID: 0}
