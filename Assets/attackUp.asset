@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 411f6fcc98839e14bbbac9bf02790660, type: 3}
-  m_Name: New Buff
+  m_Name: attackUp
   m_EditorClassIdentifier: 
   id: 0
-  buffName: 
-  description: 
+  buffName: attackUp
+  description: "\uACF5\uACA9\uB825 \uC99D\uAC00"
   targetStat: 0
   modKind: 0
-  minDuration: 0
-  maxDuration: 0
-  minEffect: 0
-  maxEffect: 0
-  icon: {fileID: 0}
+  minDuration: 1
+  maxDuration: 10
+  minEffect: 1
+  maxEffect: 100
+  icon: {fileID: 21300000, guid: cfcb343a25c2dbc4daa4d2eebbf26b9c, type: 3}
   buffColor: {r: 0, g: 0, b: 0, a: 0}

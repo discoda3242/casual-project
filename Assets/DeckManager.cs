@@ -17,6 +17,11 @@ public class DeckManager : MonoBehaviour
         return selected;
     }
 
+    public List<ActiveBuff> ShowDeck()
+    {
+        return deck;
+    }
+
     public void AddCardToDeck(ActiveBuff buff)
     {
         // 아직 deck 리스트 크기가 deckSize보다 작으면 그냥 추가
